@@ -26,5 +26,23 @@ Loop Invariant i <= x Proof:-
         x >= 0 -> pre-condition
         i <= x -> line 25 and line 27
     Preservation:
-        p = 
+        i <= x -> assumption at the end of the previous iteration
+        i < x -> loop guard on line 13
+        i + 1 <= x -> math
+        i' = i + 1 -> i++ on line 13 executed at the end of iteration
+        i' <= x -> line 32 and 33
+*/
+
+/*
+Loop Invariant p == POW(2, i + 1) Proof:-
+    Init:
+        i = 0 -> loop initialization (line 13)
+        x >= 0 -> pre-condition
+        i <= x -> line 25 and line 27
+    Preservation:
+        i <= x -> assumption at the end of the previous iteration
+        i < x -> loop guard on line 13
+        i + 1 <= x -> math
+        i' = i + 1 -> i++ on line 13 executed at the end of iteration
+        i' <= x -> line 32 and 33
 */
