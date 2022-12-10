@@ -1,0 +1,30 @@
+int POW(int x, int y)
+//@requires y >= 0;
+{
+    if (y == 0) return 1;
+    else return x * POW(x, y - 1);
+}
+
+int foo(int x)
+//@requires x >= 0;
+//@ensures \result == POW(2, x + 1);
+{
+    int p = 0;
+    for (int i = 0; i < x; i++)
+    //@loop_invariant i <= x;
+    //@loop_invariant p == POW(2, i + 1);
+    {
+        p += POW(2, i);
+    }
+    return p;
+}
+
+/*
+Loop Invariant i <= x Proof:-
+    Init:
+        i = 0 -> loop initialization (line 13)
+        x >= 0 -> pre-condition
+        i <= x -> line 25 and line 27
+    Preservation:
+        p = 
+*/
